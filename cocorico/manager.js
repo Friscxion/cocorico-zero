@@ -19,12 +19,13 @@ class Manager {
     }
 
     setSunrise = () => {
-        let add=realm.objects("Parametre").find(b=>b.name="sunriseAdd");
-        add=add?parseInt(add.value):0;
+        const param=realm.objects("Parametre").filtered("name=='sunrise'")[0];
+        let add=param?parseInt(param.value):0;
 
         let sunrise=getSunrise(LATITUDE,LONGITUDE);
+        console.log(sunrise);
         sunrise.setMinutes(sunrise.getMinutes()+add);
-
+        console.log(sunrise);
         let horraire={
             hour:sunrise.getHours(),
             minute:sunrise.getMinutes()
@@ -37,8 +38,8 @@ class Manager {
 
     }
     setSunset = () => {
-        let add=realm.objects("Parametre").find(b=>b.name="sunsetAdd");
-        add=add?parseInt(add.value):0;
+        const param=realm.objects("Parametre").filtered("name=='sunset'")[0];
+        let add=param?parseInt(param.value):0;
 
         let sunset=getSunset(LATITUDE,LONGITUDE);
         sunset.setMinutes(sunset.getMinutes()+add)
