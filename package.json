@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "express": "^4.17.1",
-    "node-schedule": "^2.0.0"
+    "node-schedule": "^2.0.0",
+    "realm": "^10.6.1",
+    "sunrise-sunset-js": "^2.2.1"
   }
 }
