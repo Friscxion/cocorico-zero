@@ -23,9 +23,8 @@ class Manager {
         let add=param?parseInt(param.value):0;
 
         let sunrise=getSunrise(LATITUDE,LONGITUDE);
-        console.log(sunrise);
         sunrise.setMinutes(sunrise.getMinutes()+add);
-        console.log(sunrise);
+
         let horraire={
             hour:sunrise.getHours(),
             minute:sunrise.getMinutes()
@@ -34,7 +33,7 @@ class Manager {
         if(this.ouverture)
             this.ouverture.reschedule(horraire);
         else
-            this.ouverture= schedule.scheduleJob(horraire, this.ouvrir);
+            this.ouverture = schedule.scheduleJob(horraire, this.ouvrir);
 
     }
     setSunset = () => {
@@ -51,7 +50,7 @@ class Manager {
         if(this.fermeture)
             this.fermeture.reschedule(horraire);
         else
-            this.fermeture= schedule.scheduleJob(horraire, this.fermer);
+            this.fermeture = schedule.scheduleJob(horraire, this.fermer);
 
     }
 }
