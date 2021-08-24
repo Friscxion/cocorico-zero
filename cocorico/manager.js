@@ -25,10 +25,7 @@ class Manager {
         let sunrise=getSunrise(LATITUDE,LONGITUDE);
         sunrise.setMinutes(sunrise.getMinutes()+add);
 
-        let horraire={
-            hour:sunrise.getHours(),
-            minute:sunrise.getMinutes()
-        }
+        let horraire = { hour:sunrise.getHours(), minute:sunrise.getMinutes() }
 
         if(this.ouverture)
             this.ouverture.reschedule(horraire);
@@ -43,10 +40,7 @@ class Manager {
         let sunset=getSunset(LATITUDE,LONGITUDE);
         sunset.setMinutes(sunset.getMinutes()+add)
 
-        let horraire={
-            hour:sunset.getHours(),
-            minute:sunset.getMinutes()
-        }
+        let horraire = { hour:sunset.getHours(), minute:sunset.getMinutes() }
         if(this.fermeture)
             this.fermeture.reschedule(horraire);
         else
