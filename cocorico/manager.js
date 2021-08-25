@@ -1,4 +1,4 @@
-const realm = require('./myrealm');
+//const realm = require('./myrealm');
 const { getSunrise, getSunset } = require('sunrise-sunset-js');
 const schedule = require('node-schedule');
 
