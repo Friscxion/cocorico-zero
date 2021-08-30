@@ -1,4 +1,3 @@
-const realm = require('./myrealm');
 const nconf=require("nconf");
 nconf.use('file', { file: './config.json' });
 nconf.load();
