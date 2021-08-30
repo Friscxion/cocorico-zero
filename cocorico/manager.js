@@ -14,16 +14,16 @@ class Manager {
     }
 
     ouvrir = () => {
-        // const Gpio = require('pigpio').Gpio;
+        const Gpio = require('pigpio').Gpio;
         // const motor = new Gpio(14, {mode: Gpio.OUTPUT});
-        // const button = new Gpio(21, {
-        //     mode: Gpio.INPUT,
-        //     pullUpDown: Gpio.PUD_DOWN,
-        //     edge: Gpio.EITHER_EDGE
-        // });
-        // button.on("alert",()=>{
-        //     console.log("press")
-        // })
+        const button = new Gpio(21, {
+            mode: Gpio.INPUT,
+            pullUpDown: Gpio.PUD_DOWN,
+            edge: Gpio.EITHER_EDGE
+        });
+        button.on("alert",()=>{
+            console.log("press")
+        })
         // let pulseWidth = 1000;
         // let increment = 100;
         // setInterval(() => {
