@@ -1,7 +1,9 @@
 module.exports=(req, res) => {
-    const realm = require('../../../cocorico/myrealm');
-    const sunrise=realm.objects("Parametre").filtered("name=='sunrise'")[0];
-    res.status(200).send({value:(sunrise?sunrise.value:"")})
+    const nconf = require('nconf');
+    nconf.use('file', { file: './config.json' });
+    nconf.load();
+    const add=nconf.get('addon');
+    res.status(200).send({value:add.sunrise})
 }
 
 

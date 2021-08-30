@@ -1,13 +1,18 @@
 module.exports=(req, res) => {
-    const realm = require('../../../cocorico/myrealm');
-    realm.write(()=>{
-        let sunset=realm.objects("Parametre").find(b=>b.name="sunset");
-        if(sunset)
-            sunset.value= req.body.data+"";
-        else
-            realm.create("Parametre", {_id:Date.now(), name:"sunset",value:req.data+""});
-    })
+    const nconf = require('nconf');
+
+    nconf.use('file', { file: './config.json' });
+    nconf.load();
+    nconf.set('addon:sunset', req.body.data);
+
+
+    nconf.save((err)=>{
+        if (err)
+            return console.error(err.message);
+        console.log('Configuration saved successfully.');
+    });
+
     const Manager = require('../../../cocorico/manager');
-    Manager.setSunset();
+    Manager.setSunrise();
     res.status(200).send("OK")
 }

@@ -39,7 +39,6 @@ class Manager {
 
     setSunrise = () => {
         const add=nconf.get('addon').sunrise;
-        console.log(add)
         let sunrise=getSunrise(LATITUDE,LONGITUDE);
         sunrise.setMinutes(sunrise.getMinutes()+add);
 
