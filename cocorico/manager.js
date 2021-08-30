@@ -15,22 +15,28 @@ class Manager {
 
     ouvrir = () => {
         const Gpio = require('pigpio').Gpio;
-        // const motor = new Gpio(14, {mode: Gpio.OUTPUT});
         const button = new Gpio(21, {
             mode: Gpio.INPUT,
             pullUpDown: Gpio.PUD_DOWN,
             edge: Gpio.EITHER_EDGE
         });
+        let boucle=true;
         button.on('interrupt', (level) => {
-            console.log("slt")
+            console.log("interrupt")
+            boucle=false;
         });
-        // let pulseWidth = 1000;
-        // let increment = 100;
-        // setInterval(() => {
-        //     motor.servoWrite(pulseWidth);
-        //     pulseWidth += increment;
-        // }, 100);
-        console.log("open")
+        console.log("slt")
+        const motor = new Gpio(14, {mode: Gpio.OUTPUT});
+        let pulseWidth = 1000;
+        let increment = 100;
+        let interval=setInterval(() => {
+            console.log("boucle")
+            motor.servoWrite(pulseWidth);
+            pulseWidth += increment;
+            if(!boucle)
+                clearInterval(interval);
+        }, 100);
+        console.log("fin")
     }
 
     fermer = () => {
