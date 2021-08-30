@@ -13,6 +13,6 @@ module.exports=(req, res) => {
     });
 
     const Manager = require('../../../cocorico/manager');
-    Manager.setSunrise();
+    Manager.setSunset();
     res.status(200).send("OK")
 }

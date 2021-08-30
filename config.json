@@ -1,6 +1,6 @@
 {
   "addon": {
-    "sunrise": 0,
-    "sunset": 0
+    "sunrise": 20,
+    "sunset": 20
   }
 }
