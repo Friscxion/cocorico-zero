@@ -21,9 +21,9 @@ class Manager {
             pullUpDown: Gpio.PUD_DOWN,
             edge: Gpio.EITHER_EDGE
         });
-        button.on("alert",()=>{
-            console.log("press")
-        })
+        button.on('interrupt', (level) => {
+            console.log("slt")
+        });
         // let pulseWidth = 1000;
         // let increment = 100;
         // setInterval(() => {
