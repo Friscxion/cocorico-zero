@@ -1,4 +1,7 @@
 const realm = require('./myrealm');
+const nconf=require("nconf");
+nconf.use('file', { file: './config.json' });
+nconf.load();
 const { getSunrise, getSunset } = require('sunrise-sunset-js');
 const schedule = require('node-schedule');
 
@@ -36,9 +39,7 @@ class Manager {
     }
 
     setSunrise = () => {
-        const param=realm.objects("Parametre").filtered("name=='sunrise'")[0];
-        let add=param?parseInt(param.value):0;
-
+        const add=nconf.get('addon').sunrise;
         let sunrise=getSunrise(LATITUDE,LONGITUDE);
         sunrise.setMinutes(sunrise.getMinutes()+add);
 
@@ -51,8 +52,7 @@ class Manager {
 
     }
     setSunset = () => {
-        const param=realm.objects("Parametre").filtered("name=='sunset'")[0];
-        let add=param?parseInt(param.value):0;
+        const add=nconf.get('addon').sunset;
 
         let sunset=getSunset(LATITUDE,LONGITUDE);
         sunset.setMinutes(sunset.getMinutes()+add)
