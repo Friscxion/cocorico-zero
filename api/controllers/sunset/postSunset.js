@@ -1,6 +1,7 @@
 module.exports=(req, res) => {
     const nconf = require('nconf');
 
+    console.log(req.body)
     nconf.use('file', { file: './config.json' });
     nconf.load();
     nconf.set('addon:sunset', req.body.data);
