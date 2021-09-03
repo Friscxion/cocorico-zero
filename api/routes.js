@@ -3,6 +3,8 @@ const router = express.Router();
 
 router.get('/hello', require('./controllers/getHello'))
 router.get('/ping', require('./controllers/getPing'))
+
+router.get('/status', require('./controllers/status/getStatus'))
 //Sunrise
 router.post('/sunrise',require('./controllers/sunrise/postSunrise'))
 router.get('/sunrise',require('./controllers/sunrise/getSunrise'))
