@@ -1,3 +1,3 @@
 module.exports=(req, res) => {
-    res.send('Open')
+    res.send('open')
 }
